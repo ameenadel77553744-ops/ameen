@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "AdelMall.Web/1.0.0": {
+        "dependencies": {
+          "AdelMall.Core": "1.0.0",
+          "AdelMall.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "AdelMall.Web.dll": {}
+        }
+      },
+      "AdelMall.Core/1.0.0": {
+        "runtime": {
+          "AdelMall.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AdelMall.Infrastructure/1.0.0": {
+        "runtime": {
+          "AdelMall.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdelMall.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdelMall.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdelMall.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

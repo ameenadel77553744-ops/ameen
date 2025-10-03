@@ -1,0 +1,11 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\bin\Debug\net9.0\AdelMall.Core.deps.json
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\bin\Debug\net9.0\AdelMall.Core.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\bin\Debug\net9.0\AdelMall.Core.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.AssemblyInfo.cs
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\refint\AdelMall.Core.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\AdelMall.Core.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Core\obj\Debug\net9.0\ref\AdelMall.Core.dll

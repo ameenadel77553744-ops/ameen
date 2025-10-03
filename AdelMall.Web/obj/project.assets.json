@@ -1,0 +1,117 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "AdelMall.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/AdelMall.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AdelMall.Core.dll": {}
+        }
+      },
+      "AdelMall.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/AdelMall.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AdelMall.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdelMall.Core/1.0.0": {
+      "type": "project",
+      "path": "../AdelMall.Core/AdelMall.Core.csproj",
+      "msbuildProject": "../AdelMall.Core/AdelMall.Core.csproj"
+    },
+    "AdelMall.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../AdelMall.Infrastructure/AdelMall.Infrastructure.csproj",
+      "msbuildProject": "../AdelMall.Infrastructure/AdelMall.Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "AdelMall.Core >= 1.0.0",
+      "AdelMall.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Web\\AdelMall.Web.csproj",
+      "projectName": "AdelMall.Web",
+      "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Web\\AdelMall.Web.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Web\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Core\\AdelMall.Core.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Core\\AdelMall.Core.csproj"
+            },
+            "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Infrastructure\\AdelMall.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\adel\\src\\AdelMall.Infrastructure\\AdelMall.Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

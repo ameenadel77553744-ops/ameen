@@ -1,0 +1,11 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\bin\Debug\net9.0\AdelMall.Infrastructure.deps.json
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\bin\Debug\net9.0\AdelMall.Infrastructure.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\bin\Debug\net9.0\AdelMall.Infrastructure.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.AssemblyInfo.cs
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\refint\AdelMall.Infrastructure.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\AdelMall.Infrastructure.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\adel\src\AdelMall.Infrastructure\obj\Debug\net9.0\ref\AdelMall.Infrastructure.dll

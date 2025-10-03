@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "AdelMall.Infrastructure/1.0.0": {
+        "runtime": {
+          "AdelMall.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AdelMall.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
