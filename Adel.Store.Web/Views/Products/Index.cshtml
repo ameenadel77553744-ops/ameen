@@ -1,0 +1,86 @@
+@model List<Adel.Store.Web.Models.Product>
+@using System.Globalization
+@{
+    var isArabic = (bool)(ViewBag.IsArabic ?? false);
+    ViewData["Title"] = isArabic ? "المنتجات" : "Products";
+}
+
+<div class="container py-3">
+    <h1 class="mb-4">@ViewData["Title"]</h1>
+    <form method="get" asp-controller="Products" asp-action="Index" class="row g-2 mb-4 align-items-center">
+        <div class="col-auto">
+            <input name="q" value="@ViewBag.Query" class="form-control" placeholder="@(isArabic ? "ابحث عن منتج" : "Search products")" />
+        </div>
+        <div class="col-auto">
+            <select name="categoryId" class="form-select">
+                <option value="">@(isArabic ? "كل التصنيفات" : "All categories")</option>
+                @foreach (var c in (IEnumerable<Adel.Store.Web.Models.Category>)ViewBag.Categories)
+                {
+                    <option value="@c.Id" selected="@(Context.Request.Query["categoryId"] == c.Id.ToString() ? "selected" : null)">@(isArabic ? c.NameAr : c.NameEn)</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto form-check d-flex align-items-center">
+            <input class="form-check-input" type="checkbox" name="featured" value="true" @(ViewBag.Featured == true ? "checked" : null) id="featuredCheck" />
+            <label class="form-check-label ms-2" for="featuredCheck">@(isArabic ? "مميّز فقط" : "Featured only")</label>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-secondary" type="submit">@(isArabic ? "تصفية" : "Filter")</button>
+        </div>
+    </form>
+
+    <div class="mb-3">
+        @foreach (var c in (IEnumerable<Adel.Store.Web.Models.Category>)ViewBag.Categories)
+        {
+            var active = Context.Request.Query["categoryId"] == c.Id.ToString();
+            <a class="badge rounded-pill @(active ? "bg-primary" : "bg-secondary") text-decoration-none me-2 mb-2" href="@Url.Action("Index", new { categoryId = c.Id, q = ViewBag.Query, featured = ViewBag.Featured })">@(isArabic ? c.NameAr : c.NameEn)</a>
+        }
+        <a class="badge rounded-pill bg-dark text-decoration-none mb-2" href="@Url.Action("Index", new { q = ViewBag.Query, featured = ViewBag.Featured })">@(isArabic ? "الكل" : "All")</a>
+    </div>
+
+    <div class="row g-3">
+        @foreach (var p in Model)
+        {
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3" data-aos="fade-up">
+                <div class="card product-card h-100">
+                    <div class="product-info">
+                        @if (p.IsFeatured)
+                        {
+                            <span class="badge bg-warning text-dark mb-2">@(isArabic ? "مميز" : "Featured")</span>
+                        }
+                        <h5 class="product-title">@(isArabic ? (p.NameAr.Length > 30 ? p.NameAr.Substring(0, 30) + "..." : p.NameAr) : (p.NameEn.Length > 30 ? p.NameEn.Substring(0, 30) + "..." : p.NameEn))</h5>
+                        <div class="product-price">@p.Price.Format()</div>
+                        <div class="product-actions">
+                            <a class="btn btn-outline-primary btn-sm flex-fill" asp-controller="Products" asp-action="Details" asp-route-id="@p.Id">
+                                @(isArabic ? "تفاصيل" : "Details")
+                            </a>
+                            <button class="btn btn-primary btn-sm flex-fill add-to-cart-btn" 
+                                    data-product-id="@p.Id" 
+                                    data-quantity="1">
+                                @(isArabic ? "أضف" : "Add")
+                            </button>
+                        </div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="admin-actions mt-2 d-flex gap-1">
+                                <form method="post" asp-controller="Products" asp-action="ToggleFeatured" class="flex-fill">
+                                    <input type="hidden" name="id" value="@p.Id" />
+                                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                    <button class="btn btn-xs btn-outline-warning w-100" type="submit">@(p.IsFeatured ? (isArabic ? "إلغاء" : "Un") : (isArabic ? "مميز" : "Feat"))</button>
+                                </form>
+                                <form method="post" asp-controller="Products" asp-action="ToggleActive" class="flex-fill">
+                                    <input type="hidden" name="id" value="@p.Id" />
+                                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                    <button class="btn btn-xs btn-outline-secondary w-100" type="submit">@(p.IsActive ? (isArabic ? "إخفاء" : "Hide") : (isArabic ? "إظهار" : "Show"))</button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+

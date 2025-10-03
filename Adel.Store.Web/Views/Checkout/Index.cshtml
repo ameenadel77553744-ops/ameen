@@ -1,0 +1,19 @@
+@model Adel.Store.Web.Models.Cart
+@{
+    ViewData["Title"] = "Checkout";
+}
+<div class="container py-4">
+    <h1 class="mb-4">@ViewData["Title"]</h1>
+    @if (!Model.Items.Any())
+    {
+        <div class="alert alert-info">Your cart is empty.</div>
+        <a class="btn btn-primary" asp-controller="Products" asp-action="Index">Shop now</a>
+    }
+    else
+    {
+        <form method="post" asp-controller="Checkout" asp-action="PlaceOrder">
+            <button class="btn btn-success" type="submit">Place order (demo)</button>
+        </form>
+        <p class="text-muted">(Demo) Order summary shown here with totals.</p>
+    }
+</div>

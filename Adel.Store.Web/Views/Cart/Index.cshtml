@@ -1,0 +1,53 @@
+@model Adel.Store.Web.Models.Cart
+@using System.Globalization
+@{
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    ViewData["Title"] = isArabic ? "سلة التسوق" : "Shopping Cart";
+}
+<div class="container py-4">
+    <h1 class="mb-4">🛒 @ViewData["Title"]</h1>
+    @if (!Model.Items.Any())
+    {
+        <div class="alert alert-info text-center">
+            <h4>@(isArabic ? "السلة فارغة" : "Your cart is empty")</h4>
+            <p>@(isArabic ? "ابدأ التسوق لإضافة منتجات إلى سلتك" : "Start shopping to add products to your cart")</p>
+            <a class="btn btn-primary" asp-controller="Products" asp-action="Index">@(isArabic ? "ابدأ التسوق" : "Continue shopping")</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-3">
+            @foreach (var item in Model.Items)
+            {
+                <div class="col-12" data-aos="fade-up">
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img src="@item.ProductImageUrl" class="img-fluid rounded-start h-100 object-cover" alt="@(isArabic ? item.ProductNameAr : item.ProductName)" style="object-fit: cover; height: 200px;">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">@(isArabic ? item.ProductNameAr : item.ProductName)</h5>
+                                    <p class="card-text text-muted">@(isArabic ? "الكمية" : "Quantity"): @item.Quantity</p>
+                                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                                        <span class="h5 text-success mb-0">@item.ProductPrice.Format()</span>
+                                        <form method="post" asp-controller="Cart" asp-action="Remove">
+                                            <input type="hidden" name="productId" value="@item.ProductId" />
+                                            <button class="btn btn-outline-danger" type="submit">🗑️ @(isArabic ? "إزالة" : "Remove")</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mt-4 text-center">
+            <div class="alert alert-success">
+                <h5>@(isArabic ? "المجموع الكلي" : "Total"): @Model.Items.Sum(i => i.ProductPrice.Amount * i.Quantity).ToString("N2") ﷼</h5>
+            </div>
+            <a class="btn btn-success btn-lg" asp-controller="Checkout" asp-action="Index">💳 @(isArabic ? "إتمام الطلب" : "Proceed to checkout")</a>
+        </div>
+    }
+</div>

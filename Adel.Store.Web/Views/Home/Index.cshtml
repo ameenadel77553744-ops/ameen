@@ -1,0 +1,45 @@
+@using System.Globalization
+@{
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    ViewData["Title"] = isArabic ? "الرئيسية" : "Home";
+}
+
+<div class="container py-4">
+    <section class="p-4 p-md-5 mb-4 rounded-3" style="background: linear-gradient(135deg, rgba(106,90,205,.35), rgba(0,188,212,.35)); border: 1px solid rgba(255,255,255,.12);" data-aos="fade-up">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold futuristic-text saudi-glow">@(isArabic ? "مرحباً بك في السوق السعودي الإلكتروني 2030" : "Welcome to Saudi Electronic Market 2030")</h1>
+            <p class="col-md-8 fs-5">@(isArabic ? "تسوق منتجات فاخرة أصلية بجودة عالمية. تجربة تسوق عصرية تليق برؤية المملكة 2030 وكأس العالم 2034. اكتشف مجموعة منتقاة من أفضل العلامات التجارية العالمية." : "Shop authentic luxury products with world-class quality. A modern shopping experience worthy of Saudi Vision 2030 and FIFA World Cup 2034. Discover a curated collection of the finest global brands.")</p>
+            <a class="btn btn-primary btn-lg" asp-controller="Products" asp-action="Index">@(isArabic ? "ابدأ التسوق" : "Start shopping")</a>
+        </div>
+    </section>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">@(isArabic ? "مختارات اليوم" : "Today’s Picks")</h2>
+        <a class="btn btn-link" asp-controller="Products" asp-action="Index">@(isArabic ? "عرض كل المنتجات" : "View all products")</a>
+    </div>
+    <div class="row g-3">
+        @{
+            // Simple random cards linking to products for demo
+            var ids = new[] {1,2};
+        }
+        @foreach (var id in ids)
+        {
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+                <div class="card product-card h-100">
+                    <div class="product-info">
+                        <span class="badge bg-warning text-dark mb-2">@(isArabic ? "مميز" : "Featured")</span>
+                        <h5 class="product-title">@(isArabic ? "منتج مميز #" : "Featured Product #")@id</h5>
+                        <div class="product-price">@(isArabic ? "٢٥٠ ر.س" : "250 SAR")</div>
+                        <div class="product-actions">
+                            <a class="btn btn-outline-primary btn-sm flex-fill" asp-controller="Products" asp-action="Details" asp-route-id="@id">
+                                @(isArabic ? "تفاصيل" : "Details")
+                            </a>
+                            <a class="btn btn-primary btn-sm flex-fill" asp-controller="Products" asp-action="Index">
+                                @(isArabic ? "تسوق" : "Shop")
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

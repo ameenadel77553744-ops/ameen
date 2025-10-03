@@ -1,0 +1,93 @@
+@using System.Globalization
+@{
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    var htmlLang = isArabic ? "ar" : "en";
+    var htmlDir = isArabic ? "rtl" : "ltr";
+    var bootstrapCss = isArabic ? Url.Content("~/lib/bootstrap/dist/css/bootstrap.rtl.min.css") : Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css");
+}
+<!DOCTYPE html>
+<html lang="@htmlLang" dir="@htmlDir">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="السوق السعودي الإلكتروني 2030 - تسوق منتجات فاخرة أصلية بجودة عالمية. تجربة تسوق عصرية تليق برؤية المملكة 2030 وكأس العالم 2034" />
+    <meta name="theme-color" content="#0e1217" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230e1217'/><text x='50' y='62' font-size='56' text-anchor='middle' fill='%2300bcd4' font-family='Arial'>🏬</text></svg>">
+    <title>@ViewData["Title"] - السوق السعودي الإلكتروني 2030</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="@bootstrapCss" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Adel.Store.Web.styles.css" asp-append-version="true" />
+</head>
+<body class="eternashop-bg">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">🇸🇦 السوق السعودي الإلكتروني 2030</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@(isArabic ? "الرئيسية" : "Home")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">@(isArabic ? "المنتجات" : "Products")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link position-relative" asp-controller="Cart" asp-action="Index">
+                                🛒 سلة التسوق <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" style="font-size: .6rem;">&nbsp;</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-2">
+                        <form asp-controller="Home" asp-action="SetLanguage" method="post" class="d-flex align-items-center gap-2">
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                            <select name="culture" class="form-select form-select-sm" onchange="this.form.submit()">
+                                <option value="ar-SA" selected="@(isArabic ? "selected" : null)">العربية</option>
+                                <option value="en-US" selected="@(!isArabic ? "selected" : null)">English</option>
+                            </select>
+                        </form>
+                        <form asp-controller="Currency" asp-action="Set" method="post" class="d-flex align-items-center">
+                            <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                            <select name="code" class="form-select form-select-sm" onchange="this.form.submit()">
+                                <option value="SAR">SAR</option>
+                                <option value="USD">USD</option>
+                                <option value="AED">AED</option>
+                            </select>
+                        </form>
+                        <form asp-controller="Auth" asp-action="Logout" method="post">
+                            <button class="btn btn-outline-secondary btn-sm" type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - 🇸🇦 السوق السعودي الإلكتروني 2030 - متجر المستقبل الرقمي
+        </div>
+    </footer>
+    @Html.AntiForgeryToken()
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
